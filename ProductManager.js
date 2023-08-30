@@ -6,13 +6,6 @@ class ProductManager {
         this.path = path
     }
 
-    async guardarProducto(product) {
-        const productos = await this.getProducts()
-        productos.push(product)
-        const contenido = JSON.stringify(productos)
-        await fs.promises.writeFile(this.path, contenido)
-    }
-
     async addProduct(newProduct) {
         // crearse con un id autoincrementable
         newProduct.id = this.id
